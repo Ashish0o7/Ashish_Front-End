@@ -2,7 +2,7 @@
 
 The list component given to us displays a list of items. The list items can be selected by the user, and the selected item will be highlighted in green. Initially every item is listed in red colour
 
-##The list of items that are passed as an array
+The list of items that are passed as an array
 | Prop          | Type     | Description                                           |
 | ------------- | -------- | ----------------------------------------------------- |
 | `items`       | `Array`  |  An array of items to display in the list             |
