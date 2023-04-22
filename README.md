@@ -3,9 +3,9 @@
 The list component given to us displays a list of items. The list items can be selected by the user, and the selected item will be highlighted in green. Initially every item is listed in red colour
 
 ##The list of items that are passed as an array
-| Prop          | Type     | Default | Required | Description                                           |
-| ------------- | -------- | ------- | -------- | ----------------------------------------------------- |
-| `items`       | `Array`  | `null`  | Yes      | An array of items to display in the list              |
+| Prop          | Type     | Description                                           |
+| ------------- | -------- | ----------------------------------------------------- |
+| `items`       | `Array`  |  An array of items to display in the list             |
 
 ### SingleListItem
 
@@ -96,6 +96,20 @@ And since the isSelected logic is wrong,as to change color of only selected, ite
 ```
 
 5.) Also did some css modification, as the color background was covering the whole width
+```js
+style={{
+        listStyle: 'disc',
+        backgroundColor: isSelected ? 'green' : 'red',
+        padding: '5px 20px',
+        borderRadius: '5px',
+        margin: '5px 0',
+        display: 'block',
+        maxWidth: '100px',
+      }}
+```   
+
+
+## To view the changes for the assignment live, do visit https://steeleye-vd95.onrender.com/
 
 
 # Ashish_Front-End
