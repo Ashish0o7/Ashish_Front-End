@@ -11,9 +11,12 @@ function App() {
 
   return (
     <div>
-      <h1>List Example</h1>
+      <h1>SteelEye List</h1>
       <List items={items} />
+      <p> <a href="https://github.com/Ashish0o7/Ashish_Front-Ends">GitHub</a></p>
     </div>
+    
+
   );
 }
 

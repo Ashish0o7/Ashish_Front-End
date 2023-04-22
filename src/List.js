@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 
@@ -10,21 +11,20 @@ const WrappedSingleListItem = ({
 }) => {
   return (
     <li
-      style={{
-        listStyle: 'disc',
+      style={{  listStyle: 'disc',
         backgroundColor: isSelected ? 'green' : 'red',
         padding: '5px 20px',
         borderRadius: '5px',
         margin: '5px 0',
         display: 'block',
-        maxWidth: '100px',
-      }}
+        maxWidth: '100px',}}
       onClick={() => onClickHandler(index)}
     >
       {text}
     </li>
   );
 };
+
 
 WrappedSingleListItem.propTypes = {
   index: PropTypes.number,
@@ -37,9 +37,9 @@ const SingleListItem = memo(WrappedSingleListItem);
 
 // List Component
 const WrappedListComponent = ({
-  items,
+items,
 }) => {
-  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [ selectedIndex,setSelectedIndex] = useState();
 
   useEffect(() => {
     setSelectedIndex(null);
@@ -48,15 +48,23 @@ const WrappedListComponent = ({
   const handleClick = index => {
     setSelectedIndex(index);
   };
+  const propTypes = {
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        text: PropTypes.string.isRequired,
+      })
+    ),
+  };
 
+  PropTypes.checkPropTypes(propTypes, { items }, 'prop', 'WrappedListComponent');
   return (
-    <ul style={{ textAlign: 'left', paddingInlineStart: '20px' }}>
+    <ul style={{ textAlign: 'left' }}>
       {items.map((item, index) => (
         <SingleListItem
-          onClickHandler={handleClick}
+          onClickHandler={() => handleClick(index)}
           text={item.text}
           index={index}
-          isSelected={selectedIndex === index}
+          isSelected={selectedIndex===index}
         />
       ))}
     </ul>
@@ -70,7 +78,7 @@ WrappedListComponent.propTypes = {
 };
 
 WrappedListComponent.defaultProps = {
-  items: [],
+  items: null,
 };
 
 const List = memo(WrappedListComponent);
