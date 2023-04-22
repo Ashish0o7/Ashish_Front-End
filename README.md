@@ -36,19 +36,17 @@ Also PropTypes.array is being used instead of PropTypes.arrayOf.
 ### 3. setSelectedIndex is not a function
 ###    TypeError: setSelectedIndex is not a function
 
- We are trying to use setSelectedIndex as a function but it is not
-In Line const [setSelectedIndex, selectedIndex] = useState();
-
+ We are trying to use setSelectedIndex as a function but it is not 
 
 ### 4. No color changing on selecting the items
 
 the onClick handler is being called immediately instead of being passed as a function.
-Also no logic is given of wherether the index is selected or not
+Also issue with logic of whether the index is selected or not, as isSelected will only accept bool values
 
 
 ## Fixing and modifying the code
 
-1.)To fix the first issue we simply have to fix the typo error AS follows ->
+1.)To fix the first issue we simply have to fix the typo error as follows ->
 ```js
 WrappedListComponent.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
@@ -69,6 +67,35 @@ const propTypes = {
 
   PropTypes.checkPropTypes(propTypes, { items }, 'prop', 'WrappedListComponent');
 ```
+In this code, PropTypes.checkPropTypes is used to validate that the items prop passed to WrappedListComponent confirms to the definition specified in propTypes.
+So I have used this checkPropTypes method to call them.
 
-    
+3.) To fix this issue
+Instead of 
+```js
+ const [setSelectedIndex, selectedIndex] = useState();
+``` 
+
+```js
+ const [selectedIndex,setSelectedIndex] = useState();
+``` 
+
+4.) Instead of 
+```js
+ onClick={onClickHandler(index)}
+``` 
+We have to use 
+
+```js
+ onClick={() => onClickHandler(index)}
+```
+
+And since the isSelected logic is wrong,as to change color of only selected, item ,we have to do is 
+```js
+ isSelected={selectedIndex===index}
+```
+
+5.) Also did some css modification, as the color background was covering the whole width
+
+
 # Ashish_Front-End
