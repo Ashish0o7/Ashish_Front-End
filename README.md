@@ -1,4 +1,4 @@
-## 1.Explain what the List component does?
+## Explain what the List component does?
 
 The list component given to us displays a list of items. The list items can be selected by the user, and the selected item will be highlighted in green. Initially every item is listed in red colour
 
@@ -18,7 +18,7 @@ The SingleListItem component is a single item in the list.
 | `onClickHandler` | `Func`   | A function to handle the click event for the item      |
 | `text`           | `String` | The text to display for the item                       |
 
-## 2.Why are the errors/warning with the code?
+## Why are the errors/warning with the code?
 
 ERRORS
 
@@ -46,7 +46,7 @@ the onClick handler is being called immediately instead of being passed as a fun
 Also no logic is given of wherether the index is selected or not
 
 
-## 3. Fixing and modifying the code
+## Fixing and modifying the code
 
 1.)To fix the first issue we simply have to fix the typo error AS follows ->
 ```js
